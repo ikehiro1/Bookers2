@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
+    @user = current_user
   end
 
   def edit
@@ -10,4 +11,13 @@ class BooksController < ApplicationController
   def show
     @books = Book.find(params[:id])
   end
+  
+  def create
+  end
+  
+  def update
+  end 
+  
+  def destroy
+  end 
 end
