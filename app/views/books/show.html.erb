@@ -12,7 +12,7 @@
           </tr>
       <tr>
         <td>
-         <%= link_to attachment_image_tag(@showbook.user, :pofile_image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg"),user_path(@user.id) %><br>
+         <%= link_to attachment_image_tag(@showbook.user, :profile_image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg"),user_path(@user.id) %><br>
          <%= link_to @user.name,user_path(@user.id) %>
         </td>
         <td><%= link_to @showbook.title,book_path(@showbook.id) %></td>
