@@ -1,16 +1,17 @@
-<% if @book.errors.any? %>
-  <div class = "error_explanation">
-      <h3 style = "color: red;"><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
-         <% @user.errors.full_messages.each do |message| %>
-      <ul>
-        <li><%= message %></li>
-      </ul>
-      <% end %>
-  </div>
-<% end %> 
+<div class='container'>
+ <div class='row'>
+   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <% if @book.errors.any? %>
+          <div class = "error_explanation">
+              <h3 style = "color: red;"><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
+                 <% @book.errors.full_messages.each do |message| %>
+              <ul>
+                <li><%= message %></li>
+              </ul>
+              <% end %>
+          </div>
+        <% end %> 
 
-<div class='row'>
-  <div class='col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto'>
       <h2>Editing Book</h2>         
        <%= form_with model: @book,local: true do |f| %>
        <%= f.label :title %><br>
@@ -28,4 +29,5 @@
       </div> 
     <% end %>  
   </div>
+ </div>
 </div>
