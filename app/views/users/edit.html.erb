@@ -2,21 +2,21 @@
  <div class='row'>
    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
           <h2>User info</h2>
-            <% if @user.errors.any? %>
-      <div class = "error_explanation">
-        <h3 style = "color: red;"><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
-          <% @user.errors.full_messages.each do |message| %>
-          <ul>
-            <li><%= message %></li>
-          </ul>
-        <% end %>
-      </div>
+              <% if @user.errors.any? %>
+        <div class = "error_explanation">
+          <h3 style = "color: red;"><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            </ul>
+          <% end %>
+        </div>
     <% end %>
         <%= form_with model: @user,local: true do |f| %>
           <%= f.label :name %><br>
             <%= f.text_field :name %><br>
     
-            <%= f.label :image %><br>
+            <%= f.label :profile_image %><br>
             <%= f.file_field :profile_image_id, accept: "image/*" %><br>
     
             <%= f.label :introduction %><br>

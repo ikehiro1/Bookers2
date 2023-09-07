@@ -28,17 +28,19 @@ class UsersController < ApplicationController
       flash[:error] = "Book was error create"
       render 'index'
     end
-  end
+   end
   
   
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+     if @user.update(user_params)
+       @user.save
       flash[:notice] = "You hava update user successfully."
       redirect_to user_path(current_user)
-    else
-      render :edit
-    end
+     else
+      flash[:error] = "user was error create"
+      render 'edit'
+     end
   end
   
    private
