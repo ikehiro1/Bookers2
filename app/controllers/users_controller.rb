@@ -16,14 +16,18 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @books = @user.books
+    @book = Book.new
   end
   
    def create
     @book = Book.new(book_params)
+    p'--------'
+    p @book
+    p'--------'
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "Book was successfully created"
-      redirect_to book_path(@books)
+      redirect_to book_path(@book)
     else
       flash[:error] = "Book was error create"
       render 'index'

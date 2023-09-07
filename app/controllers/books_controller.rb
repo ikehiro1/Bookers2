@@ -27,7 +27,6 @@ class BooksController < ApplicationController
        @books = Book.all
        @user = current_user
       render 'index'
-
     end
   end
   
