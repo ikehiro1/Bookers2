@@ -14,15 +14,15 @@
     <% end %>
         <%= form_with model: @user,local: true do |f| %>
           <%= f.label :name %><br>
-            <%= f.text_field :name %><br>
+            <%= f.text_field :name %><br><br>
     
-            <%= f.label :profile_image %><br>
-            <%= f.file_field :profile_image %><br>
+            <%= f.label :image %><br>
+            <%= f.file_field :profile_image %><br><br>
     
             <%= f.label :introduction %><br>
-            <%= f.text_field :introduction %><br>
+            <%= f.text_field :introduction %><br><br>
     
-            <%= f.submit %>
+            <%= f.submit "Update User" ,class: 'btn btn-secondary' %>
         <% end %>
       </div>
   </div>
