@@ -12,8 +12,8 @@
           </tr>
       <tr>
         <td>
-         <%= link_to attachment_image_tag(@showbook.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg"),user_path(@user.id) %><br>
-         <%= link_to @showbook.user.name,user_path(@user.id) %>
+         <%= link_to attachment_image_tag(@showbook.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg"),user_path(@showbook.user) %><br>
+         <%= link_to @showbook.user.name,user_path(@showbook.user) %>
         </td>
         <td><%= link_to @showbook.title,book_path(@showbook.id) %></td>
         <td><%= @showbook.body %></td>
