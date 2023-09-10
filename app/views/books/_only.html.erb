@@ -1,0 +1,58 @@
+<main>
+  <p id="notice"></p>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+        <div class="col-xs-3">
+          <h2>User info</h2>
+          <% if @showbook.user.profile_image.present? %>
+             <%= attachment_image_tag @showbook.user, :profile_image, format: 'jpeg', size: "100x100" %>
+          <% else %>  
+             <%= image_tag "no_image.jpg", size: '100x100' %>
+          <% end %>
+          <table class="table">
+              <tbody>
+                <tr></tr>
+                <tr>
+              	  <th>name</th>
+              	   <% if @showbook.present?%>
+                    <th><%= @showbook.user.name %></th>
+                   <% else %>
+              	    <th><%=@user.name %></th>
+              	   <% end %>
+                </tr>
+                <tr>
+              	  <th>introduction</th>
+              	   <% if @showbook.present?%>
+                     <th><%= @showbook.user.introduction%></th>
+                   <% else %>
+              	     <th><%=@user.introduction%></th>
+              	   <% end %>
+                </tr>
+              </tbody>
+          </table>
+  　
+          <div class="row">
+            <a class="btn btn-outline-secondary btn-block" href=<%="/users/#{current_user.id}/edit"%>>
+              <i class="fa-solid fa-user-gear"></i>
+            </a>
+            <!--s 投稿機能  -->
+            <div>
+             <h2 class="mt-3">New book</h2>
+              <%= form_with model: @book, local: true  do |f| %>
+              <div class="from-group">
+                 <storong>Title</storong>
+                  <%= f.text_field :title, class:"form-control book_title"%><br>
+              </div>
+              <div class="from-group">
+                <storong>Opinion</storong>
+                <%= f.text_area :body, class:"form-control book_body" %>
+              </div>
+                <%= f.submit 'Create Book',class:"btn btn-success" %><br>
+              <% end %>
+            </div>
+          <!--e 投稿機能  -->
+       </div> 
+    </div> 
+  </div>
+ </div>  
+</main>
