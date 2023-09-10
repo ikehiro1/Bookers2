@@ -6,15 +6,15 @@
     <div class="row">
         <div class="col-md-12">
           <h2>User info</h2>
-          <% if @user.profile_image_id.present? %>
-           <% if @showbook.present?%>
-             <%= attachment_image_tag @showbook.user, :profile_image, format: 'jpeg', size: "100x100" %>
-           <% else %>
-             <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100" %>
-           <% end %>
-          <% else %>  
-             <%= image_tag "no_image.jpg", size: '100x100' %>
-          <% end %>
+          　<% if user.profile_image.attached? %>
+              <%= image_tag user.profile_image, size: "100x100" %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', size: "100x100" %>
+              <% end %>
+              
+           
+
+          　 
           <table class="table">
               <tbody>
                 <tr></tr>

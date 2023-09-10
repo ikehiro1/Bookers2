@@ -17,7 +17,11 @@
             <% @users.each do |user| %>
               <tr>
                 <td>
-                 <%= link_to attachment_image_tag(user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg"),user_path(@user.id) %><br>
+                <% if user.profile_image.attached? %>
+                  <%= image_tag user.profile_image, size: "100x100" %>
+                <% else %>
+                  <%= image_tag 'no_image.jpg', size: "100x100" %>
+                <% end %>
                 </td>
                 <td>
                  <%= user.name %>

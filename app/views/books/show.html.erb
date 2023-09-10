@@ -1,6 +1,6 @@
 <div class='container px-5 px-sm-0'>
   <div class="row">
-    <%= render "books/only", user: @showbook.user, showbook: @showbook %>
+     <%= render "books/only", user: @showbook.user, showbook: @showbook %>
     <div class="col-md-8 offset-md-1">
           <h2>Book detail</h2>
           <table class="table table-hover table-inverse">
@@ -12,7 +12,12 @@
           </tr>
       <tr>
         <td>
-         <%= link_to attachment_image_tag(@showbook.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg"),user_path(@showbook.user) %><br>
+          <% if @showbook.user.profile_image.attached? %>
+            　 <%= image_tag @showbook.user.profile_image, size: "100x100" %>
+              <% else %>  
+                <%= image_tag "no_image.jpg", size: '100x100' %>
+              <% end %>
+          
          <%= link_to @showbook.user.name,user_path(@showbook.user) %>
         </td>
         <td><%= link_to @showbook.title,book_path(@showbook.id) %></td>
