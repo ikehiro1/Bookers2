@@ -2,7 +2,7 @@
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
     <div class="row">
-        <div class="col-xs-3">
+        <div class="col-md-12">
           <h2>User info</h2>
           <% if @showbook.user.profile_image.present? %>
              <%= attachment_image_tag @showbook.user, :profile_image, format: 'jpeg', size: "100x100" %>
@@ -45,7 +45,7 @@
               </div>
               <div class="from-group">
                 <storong>Opinion</storong>
-                <%= f.text_area :body, class:"form-control book_body" %>
+                <%= f.text_area :body, class:"form-control book_body" %><br>
               </div>
                 <%= f.submit 'Create Book',class:"btn btn-success" %><br>
               <% end %>
