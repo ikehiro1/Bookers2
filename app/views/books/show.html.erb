@@ -11,14 +11,15 @@
               <th colspan="3"></th>
           </tr>
       <tr>
-        <td>
-          <% if @showbook.user.profile_image.attached? %>
+        <td><%= link_to user_path(@showbook.user) do %>
+            <% if @showbook.user.profile_image.attached? %>
             　 <%= image_tag @showbook.user.profile_image, size: "100x100" %>
               <% else %>  
                 <%= image_tag "no_image.jpg", size: '100x100' %>
-              <% end %>
+            <% end %>
+            <% end %>
           <br>
-         <%= link_to @showbook.user.name,user_path(@showbook.user) %></td><br>
+         <td><%= link_to @showbook.user.name,user_path(@showbook.user) %></td><br>
         <td><%= link_to @showbook.title,book_path(@showbook.id) %></td>
         <td><%= @showbook.body %></td>
 
